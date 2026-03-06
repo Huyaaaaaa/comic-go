@@ -1,6 +1,7 @@
 package models
 
+// Tag 标签（适配现有数据库）
 type Tag struct {
-	ID   uint   `json:"id" gorm:"primaryKey"`
-	Name string `json:"name" gorm:"size:100;uniqueIndex"`
+	ID   int    `json:"id" gorm:"primaryKey"`
+	Name string `json:"name"`
 }

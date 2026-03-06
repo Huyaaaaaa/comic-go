@@ -3,8 +3,8 @@ package handlers
 import (
 	"net/http"
 
-	"comic-site/middleware"
-	"comic-site/models"
+	"comic-go/backend/middleware"
+	"comic-go/backend/models"
 
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"

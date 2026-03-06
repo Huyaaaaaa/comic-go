@@ -13,11 +13,11 @@ type User struct {
 
 type Favorite struct {
 	UserID  uint `json:"user_id" gorm:"primaryKey"`
-	ComicID uint `json:"comic_id" gorm:"primaryKey"`
+	ComicID int  `json:"comic_id" gorm:"primaryKey"`
 }
 
 type Rating struct {
 	UserID  uint    `json:"user_id" gorm:"primaryKey"`
-	ComicID uint    `json:"comic_id" gorm:"primaryKey"`
+	ComicID int     `json:"comic_id" gorm:"primaryKey"`
 	Score   float64 `json:"score"`
 }

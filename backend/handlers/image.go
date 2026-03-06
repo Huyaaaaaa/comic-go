@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"comic-site/config"
-	"comic-site/models"
+	"comic-go/backend/config"
+	"comic-go/backend/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -59,7 +59,7 @@ func (h *ImageHandler) Upload(c *gin.Context) {
 	}
 
 	img := models.ComicImage{
-		ComicID:   uint(comicID),
+		ComicID:   comicID,
 		Sort:      sort,
 		Filename:  saveName,
 		Extension: ext,

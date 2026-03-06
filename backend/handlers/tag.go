@@ -3,7 +3,7 @@ package handlers
 import (
 	"net/http"
 
-	"comic-site/models"
+	"comic-go/backend/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

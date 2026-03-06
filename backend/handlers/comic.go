@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"comic-site/models"
+	"comic-go/backend/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -110,7 +110,7 @@ func (h *ComicHandler) Rate(c *gin.Context) {
 		return
 	}
 
-	rating := models.Rating{UserID: userID.(uint), ComicID: uint(comicID), Score: req.Score}
+	rating := models.Rating{UserID: userID.(uint), ComicID: comicID, Score: req.Score}
 	h.DB.Where("user_id = ? AND comic_id = ?", userID, comicID).
 		Assign(models.Rating{Score: req.Score}).FirstOrCreate(&rating)
 

@@ -25,7 +25,8 @@ func Load() *Config {
 	}
 	dbSource := os.Getenv("DB_SOURCE")
 	if dbSource == "" {
-		dbSource = filepath.Join(".", "data", "comics.db")
+		// 使用绝对路径指向现有数据库
+		dbSource = "/Users/huyaaaaaa/project/spider/data/comics.db"
 	}
 	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
@@ -33,7 +34,7 @@ func Load() *Config {
 	}
 	uploadDir := os.Getenv("UPLOAD_DIR")
 	if uploadDir == "" {
-		uploadDir = filepath.Join(".", "uploads")
+		uploadDir = filepath.Join("..", "downloads")
 	}
 
 	return &Config{

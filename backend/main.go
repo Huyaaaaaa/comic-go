@@ -5,10 +5,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"comic-site/config"
-	"comic-site/handlers"
-	"comic-site/middleware"
-	"comic-site/models"
+	"comic-go/backend/config"
+	"comic-go/backend/handlers"
+	"comic-go/backend/middleware"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -29,11 +28,14 @@ func main() {
 	if err != nil {
 		log.Fatal("数据库连接失败:", err)
 	}
-	db.AutoMigrate(
-		&models.Comic{}, &models.Tag{}, &models.Category{},
-		&models.ComicImage{}, &models.User{},
-		&models.Favorite{}, &models.Rating{},
-	)
+	log.Printf("数据库连接成功: %s\n", cfg.DBSource)
+
+	// 禁用自动迁移，使用现有数据库结构
+	// db.AutoMigrate(
+	// 	&models.Comic{}, &models.Tag{}, &models.Category{},
+	// 	&models.ComicImage{}, &models.User{},
+	// 	&models.Favorite{}, &models.Rating{},
+	// )
 
 	// Handlers
 	comicH := handlers.NewComicHandler(db)
