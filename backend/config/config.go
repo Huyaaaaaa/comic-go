@@ -25,8 +25,8 @@ func Load() *Config {
 	}
 	dbSource := os.Getenv("DB_SOURCE")
 	if dbSource == "" {
-		// 使用绝对路径指向现有数据库
-		dbSource = "/Users/huyaaaaaa/project/spider/data/comics.db"
+		// 使用 Go 版本独立数据库
+		dbSource = "/Users/huyaaaaaa/project/spider/comic-go/comics_go.db"
 	}
 	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
